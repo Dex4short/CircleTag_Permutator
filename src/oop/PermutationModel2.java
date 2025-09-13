@@ -66,12 +66,12 @@ public abstract class PermutationModel2 extends PermutationModel{
 		
 		for(int r=0; r<rows; r++) {
 			for(int c=0; c<orbits_occupied; c++) {
-				severity = (cols*10) * (((nodes[r][c].getTokenIndex()+1)/2)*10);
+				severity = (cols * 10) * (((nodes[r][c].getTokenIndex() + 1) / 2) * 10);
 				
 				if(severity > (int)impact[0]) {
 					impact[0] = severity;
 					impact[1] = c;
-					impact[2] = (nodes[r][c].getTokenIndex()+1)/2;
+					impact[2] = (nodes[r][c].getTokenIndex() + 1) / 2;
 				}
 			}
 		}
@@ -85,7 +85,7 @@ public abstract class PermutationModel2 extends PermutationModel{
 			if(circle_count[n] > 0) {
 				orbits_used++;
 				
-				if(n > orbits_occupied) 
+				if(n > orbits_occupied)
 					orbits_occupied = n;
 			}
 		}
@@ -99,20 +99,24 @@ public abstract class PermutationModel2 extends PermutationModel{
 		public CustomNode2(int row, int col, String initial_token) {
 			super(row, col, initial_token);
 		}
+		
 		@Override
-		public void next() {		
+		public void next() {
 			super.next();
 			
 			check_alteration();
 			if(alter) {
-				cap2 = caps2[col][impact[1]][impact[2]];
+				//System.out.println(col + ", " + impact[1] + ", " + impact[2]);
+				cap2 = caps2[col][impact[1]][impact[2] - 1];
 				if(cap2 < getCap())
 					setCap(cap2);
 			}
 		}
+		
 		private void check_alteration() {
 			alter = (impact[2]!=0) && (orbits_used>1);
-		}		
+		}
+		
 	}
 	
 }

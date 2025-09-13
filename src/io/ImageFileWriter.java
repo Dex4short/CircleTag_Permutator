@@ -13,6 +13,12 @@ public abstract class ImageFileWriter {
 	public ImageFileWriter(String initial_url, int w, int h) {
 		img = new BufferedImage(w+1, h+1, BufferedImage.TYPE_INT_ARGB);
 	}
+	public abstract void onDraw(Graphics2D g2d);
+
+	public void draw() {
+		onDraw((Graphics2D) img.createGraphics());
+	}
+	
 	public void load_subfolders(String initial_url) {
 		System.out.println("loading subfolders, please wait...");
 		
@@ -31,6 +37,7 @@ public abstract class ImageFileWriter {
 			}
 		}
 	}
+	
 	public void saveImage(String url) {
 		try {
 			img_file = new File(url);
@@ -42,8 +49,7 @@ public abstract class ImageFileWriter {
 			System.out.println(e);
 		}
 	}
-	public void draw() {
-		onDraw((Graphics2D) img.createGraphics());
-	}
-	public abstract void onDraw(Graphics2D g2d);
+	
+	
+	
 }

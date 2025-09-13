@@ -29,7 +29,7 @@ public class PreviewPanel extends JPanel{
 	}
 	public void setCircleTag(CircleTag circle_tag) {
 		this.circle_tag = circle_tag;
-		getRootPane().repaint();
+		if(getRootPane()!=null) getRootPane().repaint();
 	}
 	public CircleTag getCircleTag() {
 		return circle_tag;

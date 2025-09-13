@@ -33,7 +33,7 @@ public abstract class PermutationTable extends JTable{
 			model.setValueAt(directions[r], r, 0);
 		}
 		
-		permutation = new PermutationModel3() {
+		permutation = new PermutationModel2() {
 			@Override
 			public void onNextPermutation(String next_tokens[][]) {
 				setTableValues(next_tokens);

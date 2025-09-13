@@ -1,8 +1,7 @@
 package oop;
 
 public abstract class PermutationModel extends Graph{
-	private static final int 
-	caps1[][] = {
+	private static final int caps1[][] = {
 	//count    0;  1;  2;  3;  4;  5;  6;  7;  8;
 			{ 15, 15,  5,  1,  1,  0,  0,  0,  0},//orbit1
 			{ 15, 15, 13, 13, 13,  9,  9,  1,  1},//orbit2
@@ -10,8 +9,7 @@ public abstract class PermutationModel extends Graph{
 			{ 13, 13, 13, 13, 13, 13, 13, 11, 11},//orbit4
 			{  9,  9,  9,  9,  9,  9,  9,  9,  9} //orbit5
 	};
-	protected static final int 
-	circle_count[] = {
+	protected static final int circle_count[] = {
 	//orbit 1; 2; 3; 4; 5; 
 			0, 0, 0, 0, 0
 	};
@@ -19,11 +17,13 @@ public abstract class PermutationModel extends Graph{
 	public PermutationModel() {
 		super(8,5);
 	}
+	
 	@Override
 	public void run() {
 		count_circles();
 		super.run();
 	}
+	
 	@Override
 	protected Node createCycle(int r, int c, String tokens[][]) {
 		return new CustomNode(r, c, (tokens[r][c]==null) ? "" : tokens[r][c]);
@@ -57,6 +57,7 @@ public abstract class PermutationModel extends Graph{
 			this.row = row;
 			this.col = col;
 		}
+		
 		@Override
 		public void next() {	
 			checkCurrentToken();		
@@ -66,9 +67,11 @@ public abstract class PermutationModel extends Graph{
 			cap1 = caps1[col][circle_count[col]];
 			setCap(cap1);
 		}
+		
 		private void checkCurrentToken() {
 			empty = getToken().equals("");
 		}
+		
 		private void checkTokenChanges() {
 			if(empty)
 				token_changed = !getToken().equals("");

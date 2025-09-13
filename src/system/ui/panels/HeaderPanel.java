@@ -39,6 +39,9 @@ public class HeaderPanel extends JPanel{
 	public void nextCount() {
 		count_field.setText("" + (getCurrentTagCount() + 1));
 	}
+	public void setCurrentTagCount(int tagCount) {
+		count_field.setText(String.valueOf(tagCount));
+	}
 	public int getCurrentTagCount() {
 		return Integer.parseInt(count_field.getText());
 	}

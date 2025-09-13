@@ -34,6 +34,7 @@ public abstract class Graph {
 			
 			for(c=0, cc=0; c<cols; c++, cc++) {
 				if(cc==cols) cc=0;
+				
 				nodes[r][c].setNextNode(nodes[rr][cc]);
 			}
 		}

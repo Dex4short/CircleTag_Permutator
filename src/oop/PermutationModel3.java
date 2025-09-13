@@ -8,22 +8,24 @@ public abstract class PermutationModel3 extends PermutationModel2{
 		
 	}
 	@Override
+	
 	protected Node createCycle(int r, int c, String tokens[][]) {
 		return new CustomNode3(r, c, (tokens[r][c]==null) ? "" : tokens[r][c]);
 	}
+	
 	@Override
 	public void stop() {
 		if(must_stop)
 			super.stop();
 	}
 	
-	//inner class
 	public class CustomNode3 extends CustomNode2{
 		private boolean occupied;
 		
 		public CustomNode3(int row, int col, String initial_token) {
 			super(row, col, initial_token);
 		}
+		
 		@Override
 		public void next() {
 			if(occupied && getTokenIndex()==0) {
@@ -36,6 +38,7 @@ public abstract class PermutationModel3 extends PermutationModel2{
 				occupy();
 			}
 		}
+		
 		private final CustomNode3 occupied_nodes[] = new CustomNode3[40];
 		private int n,occupied_count=0;
 		private double position1[], position2[];
@@ -66,12 +69,15 @@ public abstract class PermutationModel3 extends PermutationModel2{
 				}
 			}
 		}
+		
 		public void setOccupied(boolean occupied) {
 			this.occupied = occupied;
 		}
+		
 		public boolean isOccupied() {
 			return occupied;
 		}
+		
 		private static final double normals[][] = {
 				{-1, 1},//NW
 				{ 0, 1},//N
@@ -98,6 +104,7 @@ public abstract class PermutationModel3 extends PermutationModel2{
 					((size + 1) / 2) * 5
 			};
 		}
+		
 		public static boolean check_intersection(double c1[], double c2[]) {
 		    dx = c2[0] - c1[0];
 		    dy = c2[1] - c1[1];
