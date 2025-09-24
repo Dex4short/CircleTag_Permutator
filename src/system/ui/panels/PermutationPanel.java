@@ -102,7 +102,7 @@ public abstract class PermutationPanel extends JPanel{
 				circleTag = toCircleTag(table_values);
 
 				if(circle_tag.isMarkerValid()) {
-					plot.plotMarkerId(circleTag.getMarkerId());
+					plot.plotMarkerId(circleTag.getTagId());
 					onNextCircleTag(circleTag);
 				}
 			}

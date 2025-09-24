@@ -7,8 +7,8 @@ public abstract class PermutationModel3 extends PermutationModel2{
 	public PermutationModel3() {
 		
 	}
-	@Override
 	
+	@Override
 	protected Node createCycle(int r, int c, String tokens[][]) {
 		return new CustomNode3(r, c, (tokens[r][c]==null) ? "" : tokens[r][c]);
 	}
@@ -110,5 +110,6 @@ public abstract class PermutationModel3 extends PermutationModel2{
 		    dy = c2[1] - c1[1];
 		    return (Math.sqrt((dx*dx) + (dy*dy))) <= (c1[2] + c2[2]);
 		}
+		
 	}
 }

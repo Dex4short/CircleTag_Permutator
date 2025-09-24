@@ -1,7 +1,7 @@
 package oop;
 
 public class Node{
-	private static final String tokens[] = {"", "A+", "A-", "B+", "B-", "C+", "C-", "D+", "D-", "E+", "E-", "F+", "F-", "G+", "G-"};
+	private static final String tokens[] = {"", "I+", "I-", "V+", "V-", "X+", "X-", "L+", "L-", "C+", "C-", "D+", "D-", "M+", "M-"};
 	private int i=-1, cap;
 	private Node next_node;
 	

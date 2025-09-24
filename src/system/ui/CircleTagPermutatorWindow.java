@@ -46,7 +46,7 @@ public class CircleTagPermutatorWindow extends JFrame{
 			public void onNextCircleTag(CircleTag circle_tag) {
 				preview_panel.setCircleTag(circle_tag);
 				
-				id = circle_tag.getMarkerId();
+				id = circle_tag.getTagId();
 				if(id > 0)
 					folder = "/positives/id_" + id + "/";
 				else if (id < 0)
